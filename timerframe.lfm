@@ -1,0 +1,83 @@
+object FrameTimer: TFrameTimer
+  Left = 0
+  Height = 175
+  Top = 0
+  Width = 332
+  ClientHeight = 175
+  ClientWidth = 332
+  DesignTimePPI = 120
+  ParentFont = False
+  TabOrder = 0
+  DesignLeft = 854
+  DesignTop = 291
+  object Edt: TEdit
+    Left = 24
+    Height = 101
+    Top = 24
+    Width = 184
+    Alignment = taCenter
+    BorderSpacing.Around = 2
+    BorderSpacing.InnerBorder = 2
+    Color = clBtnFace
+    Font.Height = -67
+    NumbersOnly = True
+    ParentFont = False
+    ReadOnly = True
+    TabOrder = 0
+    Text = '00:00'
+  end
+  object BtnStart: TButton
+    Left = 224
+    Height = 55
+    Top = 16
+    Width = 71
+    Caption = '▶️'
+    Font.Height = -33
+    OnClick = BtnStartClick
+    ParentFont = False
+    TabOrder = 1
+  end
+  object BtnStop: TButton
+    Left = 224
+    Height = 55
+    Top = 80
+    Width = 71
+    AutoSize = True
+    Caption = '⏹️'
+    Enabled = False
+    Font.Height = -33
+    OnClick = BtnStopClick
+    ParentFont = False
+    TabOrder = 2
+  end
+  object Tmr: TTimer
+    Enabled = False
+    Interval = 100
+    OnTimer = TmrTimer
+    OnStartTimer = TmrStartTimer
+    OnStopTimer = TmrStopTimer
+    Left = 130
+    Top = 74
+  end
+  object PlySnd: Tplaysound
+    About.Description.Strings = (
+      'Plays WAVE sounds in Windows or Linux'
+    )
+    About.Title = 'About About About About About About PlaySound'
+    About.Height = 400
+    About.Width = 400
+    About.Font.Color = clNavy
+    About.Font.Height = -17
+    About.BackGroundColor = clCream
+    About.Version = '0.0.7'
+    About.Authorname = 'Gordon Bamber'
+    About.Organisation = 'Public Domain'
+    About.AuthorEmail = 'minesadorada@charcodelvalle.com'
+    About.ComponentName = 'PlaySound'
+    About.LicenseType = abModifiedGPL
+    SoundFile = 'min_start.wav'
+    PlayCommand = 'sndPlaySound'
+    Left = 40
+    Top = 72
+  end
+end
