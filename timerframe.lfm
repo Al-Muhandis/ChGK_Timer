@@ -1,11 +1,12 @@
 object FrameTimer: TFrameTimer
   Left = 0
-  Height = 175
+  Height = 155
   Top = 0
-  Width = 332
-  ClientHeight = 175
-  ClientWidth = 332
+  Width = 315
+  ClientHeight = 155
+  ClientWidth = 315
   DesignTimePPI = 120
+  LCLVersion = '2.2.6.0'
   ParentFont = False
   TabOrder = 0
   DesignLeft = 854
@@ -63,7 +64,7 @@ object FrameTimer: TFrameTimer
     About.Description.Strings = (
       'Plays WAVE sounds in Windows or Linux'
     )
-    About.Title = 'About About About About About About PlaySound'
+    About.Title = 'About About About About About About About About About About About About About PlaySound'
     About.Height = 400
     About.Width = 400
     About.Font.Color = clNavy

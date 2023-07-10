@@ -1,19 +1,23 @@
 object FrmMain: TFrmMain
   Left = 644
-  Height = 166
+  Height = 167
   Top = 266
-  Width = 320
+  Width = 344
   Caption = 'Таймер'
-  ClientHeight = 166
-  ClientWidth = 320
+  ClientHeight = 167
+  ClientWidth = 344
   DesignTimePPI = 120
   OnCreate = FormCreate
-  LCLVersion = '2.2.0.4'
+  LCLVersion = '2.2.6.0'
   inline FrmTimer: TFrameTimer
     Left = 8
     Top = 8
+    inherited Edt: TEdit
+      AutoSelect = False
+      TabStop = False
+    end
     inherited PlySnd: Tplaysound
-      About.Title = 'About About About About About About About PlaySound'
+      About.Title = 'About About About About About About About About About About About PlaySound'
       SoundFile = 'min-start.wav'
       Left = 114
       Top = 122

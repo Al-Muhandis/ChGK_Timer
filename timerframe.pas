@@ -26,10 +26,17 @@ type
     FAlertAudioFile: String;
     FAlertDone: Boolean;
     FAlertTime: TTime;
+    FAnswerTime: TTime;
+    FAnswerTimer: Boolean;
+    FOnStart: TNotifyEvent;
+    FOnStop: TNotifyEvent;
     FStartAudioFile: String;
     FStartTime: TDateTime;
     FStopAudioFile: String;
+    FStopDone: Boolean;
     FStopTime: TTime;
+    procedure DoStart;
+    procedure DoStop;
     procedure PlayAudio(const aAudioFile: String);
   public
     property StartAudioFile: String read FStartAudioFile write FStartAudioFile;
@@ -37,6 +44,10 @@ type
     property StopAudioFile: String read FStopAudioFile write FStopAudioFile;
     property AlertTime: TTIme read FAlertTime;
     property StopTime: TTime read FStopTime;
+    property StartTime: TDateTime read FStartTime write FStartTime;
+    property AnswerTimer: Boolean read FAnswerTimer write FAnswerTimer;
+    property OnStart: TNotifyEvent read FOnStart write FOnStart;       
+    property OnStop: TNotifyEvent read FOnStop write FOnStop;
   end;
 
 implementation
@@ -57,7 +68,9 @@ begin
   FStartTime:=Now;
   FStopTime:=1/SecsPerDay*60;
   FAlertTime:=1/SecsPerDay*50;
+  FAnswerTime:=FStopTime+1/SecsPerDay*15;
   FAlertDone:=False;
+  FStopDone:=False;
   PlayAudio(FStartAudioFile); 
   Tmr.Enabled:=True;
 end;
@@ -69,13 +82,15 @@ begin
 end;
 
 procedure TFrameTimer.TmrStartTimer(Sender: TObject);
-begin
+begin        
+  DoStart;
   BtnStop.Enabled:=True;
   BtnStart.Enabled:=False;
 end;
 
 procedure TFrameTimer.TmrStopTimer(Sender: TObject);
 begin
+  DoStop;
   BtnStart.Enabled:=True;
   BtnStop.Enabled:=False;
 end;
@@ -90,13 +105,35 @@ begin
     FAlertDone:=True;
     PlayAudio(FAlertAudioFile);
   end;
-  if aTime>=FStopTime then
+  if (aTime>=FStopTime) and not FStopDone then
+  begin
+    FStopDone:=True;
+    if not AnswerTimer then
+    begin
+      Tmr.Enabled:=False;
+      aTime:=FStopTime;
+    end;
+    PlayAudio(FStopAudioFile);
+  end;
+  if AnswerTimer and (aTime>=FAnswerTime) then
   begin
     Tmr.Enabled:=False;
     aTime:=FStopTime;
     PlayAudio(FStopAudioFile);
   end;
   Edt.Text:=TimeToStopWatchStr(aTime);
+end;
+
+procedure TFrameTimer.DoStart;
+begin
+  if Assigned(FOnStart) then
+    FOnStart(Self);
+end;
+
+procedure TFrameTimer.DoStop;
+begin
+  if Assigned(FOnStop) then
+    FOnStop(Self);
 end;
 
 procedure TFrameTimer.PlayAudio(const aAudioFile: String);
