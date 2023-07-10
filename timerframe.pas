@@ -90,9 +90,9 @@ end;
 
 procedure TFrameTimer.TmrStopTimer(Sender: TObject);
 begin
-  DoStop;
   BtnStart.Enabled:=True;
-  BtnStop.Enabled:=False;
+  BtnStop.Enabled:=False;  
+  DoStop;
 end;
 
 procedure TFrameTimer.TmrTimer(Sender: TObject);
@@ -106,20 +106,20 @@ begin
     PlayAudio(FAlertAudioFile);
   end;
   if (aTime>=FStopTime) and not FStopDone then
-  begin
+  begin             
+    PlayAudio(FStopAudioFile);
     FStopDone:=True;
     if not AnswerTimer then
     begin
       Tmr.Enabled:=False;
       aTime:=FStopTime;
     end;
-    PlayAudio(FStopAudioFile);
   end;
   if AnswerTimer and (aTime>=FAnswerTime) then
-  begin
+  begin               
+    PlayAudio(FStopAudioFile);
     Tmr.Enabled:=False;
     aTime:=FStopTime;
-    PlayAudio(FStopAudioFile);
   end;
   Edt.Text:=TimeToStopWatchStr(aTime);
 end;
