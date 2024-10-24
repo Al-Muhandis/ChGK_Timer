@@ -1,0 +1,5 @@
+{"version":1,"strings":[
+{"hash":3358000,"name":"tframetimer.edt.text","sourcebytes":[48,48,58,48,48],"value":"00:00"},
+{"hash":247618319,"name":"tframetimer.btnstart.caption","sourcebytes":[226,150,182,239,184,143],"value":"\u25B6\uFE0F"},
+{"hash":247171855,"name":"tframetimer.btnstop.caption","sourcebytes":[226,143,185,239,184,143],"value":"\u23F9\uFE0F"}
+]}

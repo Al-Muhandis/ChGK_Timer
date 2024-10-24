@@ -63,7 +63,7 @@ object FrameTimer: TFrameTimer
     About.Description.Strings = (
       'Plays WAVE sounds in Windows or Linux'
     )
-    About.Title = 'About About About About About About About About About About About About About About PlaySound'
+    About.Title = 'About PlaySound'
     About.Height = 400
     About.Width = 400
     About.Font.Color = clNavy
