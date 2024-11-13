@@ -9,6 +9,7 @@ Options:
 EOF
 )
 
+
 function priv_lazbuild
 (
     if ! (which lazbuild); then
