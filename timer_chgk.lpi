@@ -18,7 +18,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <RevisionNr Value="1"/>
-      <BuildNr Value="6"/>
+      <BuildNr Value="9"/>
     </VersionInfo>
     <BuildModes>
       <Item Name="Default" Default="True"/>
@@ -104,7 +104,7 @@
     </RunParams>
     <RequiredPackages>
       <Item>
-        <PackageName Value="playwavepackage"/>
+        <PackageName Value="ChgkTimer"/>
       </Item>
       <Item>
         <PackageName Value="LCL"/>
@@ -121,14 +121,6 @@
         <ComponentName Value="FrmMain"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit>
-      <Unit>
-        <Filename Value="timerframe.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="FrameTimer"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Frame"/>
-        <UnitName Value="TimerFrame"/>
       </Unit>
     </Units>
   </ProjectOptions>
