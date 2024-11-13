@@ -47,19 +47,21 @@ Function Build-Project {
         $env:PATH+=";$($VAR.Path)"
         Get-Command $VAR.Cmd
     }
-    If ( Test-Path -Path 'use\components.txt' ) {
+    If ( Test-Path -Path 'use' ) {
         & git submodule update --recursive --init | Out-Host
         & git submodule update --recursive --remote | Out-Host
-        Get-Content -Path 'use\components.txt' | ForEach-Object {
-            If ((! (& lazbuild --verbose-pkgsearch $_)) &&
-                (! (& lazbuild --add-package $_)) &&
-                (! (Test-Path -Path 'use\components.txt'))) {
-                    $OutFile = Request-File "https://packages.lazarus-ide.org/$($_).zip"
-                    Expand-Archive -Path $OutFile -DestinationPath "use\$($_)" -Force
-                    Remove-Item $OutFile
-                }
+        If ( Test-Path -Path 'use\components.txt' ) {
+            Get-Content -Path 'use\components.txt' | ForEach-Object {
+                If ((! (& lazbuild --verbose-pkgsearch $_)) &&
+                    (! (& lazbuild --add-package $_)) &&
+                    (! (Test-Path -Path "use\$($_)"))) {
+                        $OutFile = Request-File "https://packages.lazarus-ide.org/$($_).zip"
+                        Expand-Archive -Path $OutFile -DestinationPath "use\$($_)" -Force
+                        Remove-Item $OutFile
+                    }
+            }
         }
-        Get-ChildItem -Filter '*.lpk' -Recurse -File –Path 'use' | ForEach-Object {
+        Get-ChildItem -Filter '*.lpk' -Recurse -File –Path $Env:PWD | ForEach-Object {
             & lazbuild --add-package-link $_ | Out-Host
         }
     }
