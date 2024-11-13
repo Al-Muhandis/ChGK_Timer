@@ -33,9 +33,9 @@ object FrameTimer: TFrameTimer
     Width = 71
     Caption = '▶️'
     Font.Height = -33
-    OnClick = BtnStartClick
     ParentFont = False
     TabOrder = 1
+    OnClick = BtnStartClick
   end
   object BtnStop: TButton
     Left = 224
@@ -46,9 +46,9 @@ object FrameTimer: TFrameTimer
     Caption = '⏹️'
     Enabled = False
     Font.Height = -33
-    OnClick = BtnStopClick
     ParentFont = False
     TabOrder = 2
+    OnClick = BtnStopClick
   end
   object Tmr: TTimer
     Enabled = False
@@ -57,7 +57,7 @@ object FrameTimer: TFrameTimer
     OnStartTimer = TmrStartTimer
     OnStopTimer = TmrStopTimer
     Left = 130
-    Top = 74
+    Top = 72
   end
   object PlySnd: Tplaysound
     About.Description.Strings = (

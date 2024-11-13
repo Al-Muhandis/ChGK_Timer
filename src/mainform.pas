@@ -5,8 +5,7 @@ unit mainform;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Buttons, ComCtrls, ExtCtrls,
-  RxTimeEdit, TimerFrame
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Buttons, ComCtrls, ExtCtrls, TimerFrame
   ;
 
 type
