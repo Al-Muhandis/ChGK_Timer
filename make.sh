@@ -40,7 +40,7 @@ function priv_lazbuild
                     fi
             done < 'use/components.txt'
         fi
-        find 'use' -type 'f' -name '*.lpk' -exec lazbuild --add-package-link {} +
+        find "${PWD}" -type 'f' -name '*.lpk' -exec lazbuild --add-package-link {} +
     fi
     find 'src' -type 'f' -name '*.lpi' \
         -exec lazbuild --no-write-project --recursive --no-write-project --build-mode=release {} + 1>&2

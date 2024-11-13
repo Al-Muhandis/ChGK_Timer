@@ -61,7 +61,7 @@ Function Build-Project {
                     }
             }
         }
-        Get-ChildItem -Filter '*.lpk' -Recurse -File –Path 'use' | ForEach-Object {
+        Get-ChildItem -Filter '*.lpk' -Recurse -File –Path $Env:PWD | ForEach-Object {
             & lazbuild --add-package-link $_ | Out-Host
         }
     }
