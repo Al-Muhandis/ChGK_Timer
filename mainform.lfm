@@ -8,19 +8,10 @@ object FrmMain: TFrmMain
   ClientWidth = 344
   DesignTimePPI = 120
   OnCreate = FormCreate
-  LCLVersion = '2.2.6.0'
+  LCLVersion = '3.6.0.0'
   inline FrmTimer: TFrameTimer
-    Left = 8
-    Top = 8
-    inherited Edt: TEdit
-      AutoSelect = False
-      TabStop = False
-    end
-    inherited PlySnd: Tplaysound
-      About.Title = 'About About About About About About About About About About About PlaySound'
-      SoundFile = 'min-start.wav'
-      Left = 114
-      Top = 122
+    inherited Tmr: TTimer
+      Top = 74
     end
   end
 end
