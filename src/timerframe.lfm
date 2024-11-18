@@ -52,7 +52,7 @@ object FrameTimer: TFrameTimer
   end
   object Tmr: TTimer
     Enabled = False
-    Interval = 100
+    Interval = 50
     OnTimer = TmrTimer
     OnStartTimer = TmrStartTimer
     OnStopTimer = TmrStopTimer
